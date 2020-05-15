@@ -5161,6 +5161,7 @@ static int do_gtunable(struct cmd_context *ctx)
 		if (!valid)
 			exit_bad_args();
 	}
+
 	return 0;
 }
 
@@ -5970,6 +5971,18 @@ static const struct option args[] = {
 		.func	= do_sfec,
 		.help	= "Set FEC settings",
 		.xhelp	= "		[ encoding auto|off|rs|baser|llrs [...]]\n"
+	},
+	{
+		.opts	= "--show-frame-preemption",
+		.nlfunc	= nl_get_preempt,
+		.help	= "Show Frame Preemption settings",
+	},
+	{
+		.opts	= "--set-frame-preemption",
+		.nlfunc	= nl_set_preempt,
+		.help	= "Set Frame Preemption settings",
+		.xhelp	= "		[ fp on|off ]\n"
+			  "		[ add-frag-size %d ]\n",
 	},
 	{
 		.opts	= "-Q|--per-queue",

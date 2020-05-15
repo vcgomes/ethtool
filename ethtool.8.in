@@ -1420,6 +1420,21 @@ shown. Default is to show notifications for all devices.
 Show tunnel-related device capabilities and state.
 List UDP ports kernel has programmed the device to parse as VxLAN,
 or GENEVE tunnels.
+.TP
+.B \-\-set\-frame\-preemption
+Configures frame preemption support for the specified network device.
+
+Frame preemption allows packets from higher priority queues, called
+express queues, to interrupt (preempt) the transmission of packets
+from lower priority queues.
+.RS 4
+.TP
+.B fp\ [ on | off ]
+Enables or disables frame preemption.
+.TP
+.B add\-frag\-size \ N
+Size, in bytes, of minimum non-final fragments of preempted packets
+supported by the receiver.
 .RE
 .SH BUGS
 Not supported (in part or whole) on all network drivers.
