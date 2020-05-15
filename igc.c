@@ -280,5 +280,19 @@ int igc_dump_regs(struct ethtool_drvinfo *info __maybe_unused,
 		       bit_to_boolean(reg & ETQF_FILTER_EN));
 	}
 
+	printf("Preemption statistics:\n");
+	printf("    TX Preemption event counter: %d\n", regs_buff[216]);
+	printf("    Good TX Preemptable Packets: %d\n", regs_buff[219]);
+	printf("    Good TX Express Packets: %d\n", regs_buff[221]);
+	printf("    TX Preempted Packets: %d\n", regs_buff[215]);
+	printf("    RX Preemption event counter: %d\n", regs_buff[218]);
+	printf("    Good RX Preemptable Packets: %d\n", regs_buff[220]);
+	printf("    Good RX Preempted Packets: %d\n", regs_buff[217]);
+	printf("    Preemption Exception Counter:\n");
+	printf("        OOO_SMDC %d\n", (regs_buff[222] & 0xff));
+	printf("        OOO_FRAME %d\n", (regs_buff[222] >> 8 & 0xff));
+	printf("        OOO_FRAG %d\n", (regs_buff[222] >> 16 & 0xff));
+	printf("        MISS_FRAME_FRAG %d\n", (regs_buff[222] >> 24 & 0xff));
+
 	return 0;
 }
